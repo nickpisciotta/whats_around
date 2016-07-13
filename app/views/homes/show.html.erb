@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+
+<% if current_user %>
+  <%= link_to "See User Stats", user_path(current_user.id)  %>
+<% else  %>
+  <p> Please Login </p>
+<% end  %>
