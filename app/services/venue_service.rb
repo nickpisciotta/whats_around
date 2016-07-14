@@ -36,7 +36,6 @@ class VenueService
     parse(response)
   end
 
-
   def parse(response)
     JSON.parse(response.body)
   end

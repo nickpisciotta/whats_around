@@ -12,6 +12,12 @@ class Venue < OpenStruct
     end
   end
 
+  # def create_venues_objects(parsed_data_sets)
+  #   map do |parsed_data_set|
+  #     Venue.new(parsed_data_set)
+  #   end
+  # end
+
   def self.find(params_id)
     venue = self.service.get_venue_basic_info(params_id)
     Venue.new(venue["response"]["venue"])
@@ -58,7 +64,6 @@ class Venue < OpenStruct
   end
 
 private
-
   def service
     @@service ||= VenueService.new
   end
