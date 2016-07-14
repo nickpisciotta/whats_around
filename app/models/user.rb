@@ -42,7 +42,6 @@ class User < ActiveRecord::Base
   def last_check_ins(user)
     last_checkin_hash = self.service(user).get_check_ins(user.uid)
     top_5_check_ins = last_checkin_hash["response"]["checkins"]["items"][0..4]
-    byebug
     venues_of_check_ins = top_5_check_ins.map { |check_in| Venue.new(check_in["venue"]) }
     time_of_check_ins = top_5_check_ins.map { |check_in| format_date(check_in["createdAt"]) }
     venues_of_check_ins.zip(time_of_check_ins)

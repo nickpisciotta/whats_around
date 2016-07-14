@@ -3,13 +3,12 @@
 <%= form_tag venues_search_path, :method => 'get' do %>
   <%= select_tag :city, options_for_select(us_cities)   %>
   <%= select_tag :state, options_for_select(us_states) %>
-  <%= select_tag :category_id, options_for_select(@category.map {|category| category.name}) %>
-  <%#= select(:category, :category_id, @category.map {|category| category.name}.zip(@category.map {|category| category.id})) %>
+  <%= select_tag :category, options_for_select(@category.map { |category| [category.name, category.id]}), :include_blank=>true%>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
 <% if @venues %>
-<h2>Results:</h2>
+<h2>Results By City:</h2>
   <ul>
   <% @venues.each do |venue| %>
       <li> <%= link_to venue.name, venue_path(venue.id)  %></li>
@@ -17,10 +16,10 @@
   </ul>
 <% end %>
 
-<% if @venues_category %>
-<h2>Results by Category:</h2>
+<% if @venues_category_city %>
+<h2>Results by Category and City:</h2>
   <ul>
-  <% @venues_category.each do |venue| %>
+  <% @venues_category_city.each do |venue| %>
       <li> <%= link_to venue.name, venue_path(venue.id)  %></li>
   <%end  %>
   </ul>

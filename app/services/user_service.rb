@@ -21,7 +21,6 @@ class UserService
     response = @connection.get("/v2/users/#{u_id}/checkins")
     parse(response)
   end
-
   # def get_tips(u_id)
   #   response = @connection.get("/v2/users/#{u_id}/tips")
   #   parse(response)
