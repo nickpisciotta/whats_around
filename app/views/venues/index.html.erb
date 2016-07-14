@@ -1,5 +1,6 @@
 <h1>Venues#index</h1>
 
+<%= link_to "Search More Venues", venues_search_path %>
 <ul>
   <% @venues.each do |venue| %>
   <li><%= link_to venue["venue"]["name"], venue_path(venue["venue"]["id"]) %></li>

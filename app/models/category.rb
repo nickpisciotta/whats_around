@@ -1,0 +1,4 @@
+class Category < OpenStruct
+
+
+end

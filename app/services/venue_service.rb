@@ -12,10 +12,20 @@ class VenueService
     parse(response)
   end
 
-  def get_venue
-    response = @connection.get
+  def get_venue_basic_info(v_id)
+    response = @connection.get("/v2/venues/#{v_id}")
+    parse(response)
   end
 
+  def get_categories
+    response = @connection.get("/v2/venues/categories")
+    parse(response)
+  end
+
+  def get_venues_by_location(location)
+    response = @connection.get("/v2/venues/search?near=#{location}")
+    parse(response)
+  end
 
 
   def parse(response)
