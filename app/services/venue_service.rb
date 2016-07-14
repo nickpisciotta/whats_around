@@ -16,11 +16,6 @@ class VenueService
     parse(response)
   end
 
-  def get_stats(venue_id)
-    response = connection.get("/v2/venues/#{venue_id}/stats")
-    parse(response)
-  end
-
   def get_categories
     response = connection.get("/v2/venues/categories")
     parse(response)

@@ -57,10 +57,6 @@ class Venue < OpenStruct
     tips.map {|tip| tip["text"]}
   end
 
-  def check_in_stats
-    stats_hash = service.get_stats(self.id)
-  end
-
 private
 
   def service

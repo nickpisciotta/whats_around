@@ -1,22 +1,26 @@
-<h1><%= @venue.name %></h1>
-General Info:
-<ul>
-  <%if @venue.location["address"] %>
-    <li>Address: <%= @venue.location["address"] %></li>
-    <li>City: <%= @venue.location["city"] %></li>
-  <% end %>
-    <li>State: <%= @venue.location["state"] %></li>
-    <li>Post Code: <%= @venue.location["postalCode"] %></li>
-    <li>Name <%= @venue.categories.first["name"] %></li>
-  <% if @venue.hours %>
-    <li>Days Open: <%= @venue.hours["timeframes"].first["days"] %></li>
-    <li>Hours: <%= @venue.hours["timeframes"].first["open"].first["renderedTime"] %></li>
-  <% end  %>
+<div class="container">
+
+  <h1><%= @venue.name %></h1>
+  General Info:
+  <ul>
+    <%if @venue.location["address"] %>
+      <li>Address: <%= @venue.location["address"] %></li>
+      <li>City: <%= @venue.location["city"] %></li>
+    <% end %>
+      <li>State: <%= @venue.location["state"] %></li>
+      <li>Post Code: <%= @venue.location["postalCode"] %></li>
+      <li>Category:  <%= @venue.categories.first["name"] %></li>
+    <% if @venue.hours %>
+      <li>Days Open: <%= @venue.hours["timeframes"].first["days"] %></li>
+      <li>Hours: <%= @venue.hours["timeframes"].first["open"].first["renderedTime"] %></li>
+    <% end  %>
+    </ul>
+
+  Tips:
+  <ul>
+  <% @venue_tips.each do |tip| %>
+    <li><%= tip %></li>
+   <% end  %>
   </ul>
 
-Tips:
-<ul>
-<% @venue_tips.each do |tip| %>
-  <li><%= tip %></li>
- <% end  %>
-</ul>
+</div>

@@ -1,8 +1,13 @@
-<h1>Venues#index</h1>
+<div class="container">
 
-<%= link_to "Search More Venues", venues_search_path %>
-<ul>
-  <% @venues.each do |venue| %>
-  <li><%= link_to venue["venue"]["name"], venue_path(venue["venue"]["id"]) %></li>
-  <% end %>
- </ul>
+  <h1>All My Check-Ins</h1>
+  <div class="text-center">
+  <%= link_to "Search More Venues", venues_search_path, class:"btn btn-default " %>
+  </div>
+  <ul>
+    <% @venues.each do |venue| %>
+    <li><%= link_to venue["venue"]["name"], venue_path(venue["venue"]["id"]) %></li>
+    <% end %>
+   </ul>
+
+</div>

@@ -1,11 +1,14 @@
-<h1>Welcome, <%= @user_name %></h1>
-<p><%= image_tag(@user_photo) %></p>
-<p>My Check-In Count: <%= @user_check_ins_total %></p>
-<ul>
-<% @last_5_check_ins.each do |check_in|  %>
-  <li><%= link_to check_in[0].name, venue_path(check_in[0].id) %></li>
-    <ul>
-      <li>Date of Checkin: <%= check_in[1] %></li>
-    </ul>
-<% end %>
-</ul>
+<div class="container">
+
+  <h1>Welcome, <%= @user_name %></h1>
+  <p><%= image_tag(@user_photo) %></p>
+  <p>My Check-In Count: <%= @user_check_ins_total %></p>
+  <ul>
+  <% @last_5_check_ins.each do |check_in|  %>
+    <li><%= link_to check_in[0].name, venue_path(check_in[0].id) %></li>
+      <ul>
+        <li>Date of Checkin: <%= check_in[1] %></li>
+      </ul>
+  <% end %>
+  </ul>
+</div>

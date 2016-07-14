@@ -1,8 +1,11 @@
-<h1>Welcome</h1>
+<div class="container">
 
-<% if current_user %>
-  <%= link_to "See User Stats", user_path(current_user.id)  %></br></br>
-  <%= link_to "See User's Check-in Venues", venues_path %>
-<% else  %>
-  <p> Please Login </p>
-<% end  %>
+  <h1>Welcome</h1>
+
+  <% if current_user %>
+    <%= link_to "See User Stats", user_path(current_user.id)  %></br></br>
+    <%= link_to "See User's Check-in Venues", venues_path %>
+  <% else  %>
+    <p> Please Login </p>
+  <% end  %>
+</div>
