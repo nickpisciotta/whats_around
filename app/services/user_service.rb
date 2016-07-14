@@ -1,34 +1,27 @@
 class UserService
 
-  def initialize(user)
-    @user = user
-    @connection = Faraday.new("https://api.foursquare.com/v2")
-    @connection.params["oauth_token"] = @user.oauth_token
-    @connection.params["v"] = "20160712"
+  def initialize
+    @_connection = Faraday.new("https://api.foursquare.com/v2")
+    @_connection.params["oauth_token"] = ENV["foursquare_oauth_token"]
+    @_connection.params["v"] = "20160712"
   end
-  # def get_user(id)
-  #   response = @connection.get("/api/v1/artists/#{id}.json")
-  #   parse(response)
-  # end
 
   def get_user_info(u_id)
-    response = @connection.get("/v2/users/#{u_id}")
+    response = connection.get("/v2/users/#{u_id}")
     parse(response)
   end
-
 
   def get_check_ins(u_id)
-    response = @connection.get("/v2/users/#{u_id}/checkins")
+    response = connection.get("/v2/users/#{u_id}/checkins")
     parse(response)
   end
-  # def get_tips(u_id)
-  #   response = @connection.get("/v2/users/#{u_id}/tips")
-  #   parse(response)
-  # end
 
   def parse(response)
     JSON.parse(response.body)
   end
 
-
+  private
+    def connection
+      @_connection
+    end
 end
